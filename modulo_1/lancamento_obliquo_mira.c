@@ -10,21 +10,21 @@ double velocidade_inicial, angulo_lancamento, tempo_especifico;
 double vel_horizontal_inicial, vel_vertical_inicial, temp_voo_total;
 double altura_maxima, alcance_horizontal, posicao_horizontal, posicao_vertical;
 
-
+//retorna o angulo em Radianos
 double converte_angulo(double angulo_lancamento){
 
     angulo_lancamento = angulo_lancamento * (M_PI/180);
        
     return angulo_lancamento;
 }
-
+// retorna a velocidade vertical inicial
 double calcula_componente_velocidade_vertical(double velocidade_inicial, double angulo_lancamento){
 
     vel_vertical_inicial = velocidade_inicial * sin(angulo_lancamento);
 
     return vel_vertical_inicial;
 }
-
+// retorna a velocidade horizontal inicial 
 double calcula_componente_velocidade_horizontal(double velocidade_inicial, double angulo_lancamento){
 
     vel_horizontal_inicial = velocidade_inicial * cos(angulo_lancamento);
@@ -32,21 +32,21 @@ double calcula_componente_velocidade_horizontal(double velocidade_inicial, doubl
     return vel_horizontal_inicial;
 
 }
-
+// calcula o tempo de voo
 double calcula_tempo_voo(double vel_vertical_inicial,double GRAVIDADE_PADRAO){
 
     temp_voo_total = (2*vel_vertical_inicial)/GRAVIDADE_PADRAO;
 
     return temp_voo_total;
 }
-
+//calcula a altura maxima que o projetil pode chegar 
 double calcula_altura_maxima(double vel_vertical_inicial,double GRAVIDADE_PADRAO){
     
     altura_maxima = (vel_vertical_inicial * vel_vertical_inicial)/(2*GRAVIDADE_PADRAO);
 
     return altura_maxima;
 }           
-
+//calcula o alcance horizonta que o projetil chega 
 double calcula_alcance_horizontal(double velocidade_inicial,double angulo_lancamento,double GRAVIDADE_PADRAO){
 
     alcance_horizontal = (velocidade_inicial * velocidade_inicial * sin(2* angulo_lancamento))/GRAVIDADE_PADRAO;
