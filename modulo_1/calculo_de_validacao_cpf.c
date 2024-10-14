@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
 
 // recebe oque usuario digitou 
 void entrada_dados(char *valor_digitado,int tamanho){
@@ -122,18 +123,35 @@ int valida_verificador_2(int *cpf_a_validar){
     // o return esta em uma operção ternaria !!!
     return verificador_2 == cpf_a_validar[10] ? 1 : 0;  
 }
+
+void bild_cpf(int *cpf_a_validar,int tamanho){
+    for(int i = 0;i < tamanho; i++ ){
+        int numero_cpf = rand() % 10;
+        cpf_a_validar[i] = numero_cpf;
+    }
+}
+
+void cpf_to_str(int *cpf_a_validar,char *cpf_string,int tamanho){
+    for(int i = 0; i < tamanho; i++){
+        cpf_string[i] = '0' + cpf_a_validar[i];
+    }
+    cpf_string[tamanho] = '\0';
+}
 int main(){
 
     //decalaraçao de variaveis 
     char valor_digitado[100];
     char menu;
     int cpf_a_validar[11];
+    char cpf_string[12];
+    int attempts = 0;
+    srand(time(NULL));
     
 
     do{
         printf("Validador e Criador de CPF\n "
         "digite a opcao desejada\n"
-        "[V]alidar, [C]riar: ");
+        "[V]alidar, [C]riar,[S]air: ");
         scanf("%c", &menu);
         getchar();
 
@@ -161,29 +179,46 @@ int main(){
                         // se for verdade mostro o valor digitado e passo 
                         // informando que o cpf é valido 
                         printf("O cpf  %s, é valido\n",valor_digitado);
+                        break;
+                    }else{
+                        // se o segundo digito der errado mostro cpf invalido  
+                        printf("O cpf %s, é invalido\n",valor_digitado);
+                    }
                 }else{
-                    // se o segundo digito der errado mostro cpf invalido  
-                    printf("O cpf %s, é invalido\n",valor_digitado);
+                    // se o primeiro digito der errado ja mostro 
+                    //cpf invalido tambem 
+                    printf("o cpf %s é invalido\n",valor_digitado);
                 }
-                break;
             }else{
-                // se o primeiro digito der errado ja mostro 
-                //cpf invalido tambem 
-                printf("o cpf %s é invalido\n",valor_digitado);
-            }
-
-            }
-            else{
                 //caso a entrada de dados nao seja valida,
                 //o usario tera que entrar novamente como os dados
                 printf("valor invalido isso não é um cpf\n"); 
-                entrada_dados(valor_digitado,sizeof(valor_digitado));
             }
         }
         break;
         case 'c':
         case 'C':
-         printf("falta implemntar\n");
+        while(1){
+            bild_cpf(cpf_a_validar, 11); // Gera um novo CPF
+            attempts++;
+
+            // Se CPF for válido, exibe e sai do loop
+            if (valida_verificador_1(cpf_a_validar) == 1 && valida_verificador_2(cpf_a_validar) == 1) {
+                cpf_to_str(cpf_a_validar, cpf_string, 11);
+                printf("O CPF novo é: %s\n", cpf_string);
+                break; // Sai do loop
+            }
+            if (attempts >= 1000000) {
+                printf("Não foi possível gerar um CPF válido após 1.000.000 tentativas.\n");
+                break; // Sai do loop se não gerar CPF válido
+            }
+        }    
+        break;
+
+        case 's':
+        case 'S':
+            printf("\nsaindo\n");
+            menu = 0;
         break;
         
         default:
