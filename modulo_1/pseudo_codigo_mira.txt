@@ -1,0 +1,253 @@
+lista_3
+
+ex 1
+
+    inicio
+
+        real nota1
+        real nota2
+        real nota3
+        real nota4
+        real nota_final
+        
+        escreva("digite a nota1")
+        leia(nota1)
+        escreva("digite a nota2")
+        leia(nota2)
+        escreva("digite a nota3")
+        leia(nota3)
+        escreva("digite a nota4)
+        leia(nota4)
+
+        nota_final = (nota1 + nota2 + nota3 + nota4)/4
+
+        se(nota_final > 6){
+            escreva("aluno aprovado",nota_final)
+        }se nao{
+            escreva("aluno reprovado",nota_final)
+        }
+
+    fim
+
+ex 2
+
+    inicio
+
+        real raio_circulo
+        real PI = 3.14
+        real area_cirulo
+
+
+        escreva("digite o raio do criculo")
+        leia(raio_circulo)
+
+        area_cirulo = PI*(raio_circulo * raio_circulo)
+
+
+        escreva("a area do criculo",area_cirulo)
+
+    fim
+
+ex 3
+
+        início
+
+        real altura_tanque
+        real raio_tanque
+        real area_tanque
+        real litros_por_lata = 5
+        real rendimento_por_litro = 3  
+        real preco_lata
+        real quantidade_latas
+        real custo_total
+        real PI = 3.14
+        real litros_necessarios
+
+        escreva("Digite a altura do tanque em metros:")
+        leia(altura_tanque)
+
+        escreva("Digite o raio do tanque em metros:")
+        leia(raio_tanque)
+
+        escreva("Digite o preço da lata de tinta em reais:")
+        leia(preco_lata)
+
+        area_tanque = (2 * PI * raio_tanque * (altura_tanque + raio_tanque))
+
+        litros_necessarios = area_tanque / rendimento_por_litro
+
+        quantidade_latas = litros_necessarios / litros_por_lata
+
+        custo_total = preco_lata * quantidade_latas
+
+        escreva("A quantidade de latas de tinta necessária é:", quantidade_latas)
+        escreva("O custo total da pintura será: R$", custo_total)
+
+    fim
+
+ex 4    
+
+    inicio
+    
+        inteiro hora_trabalhada
+        inteiro hora_extra
+        inteiro hora_ausente
+        inteiro hora_total
+
+        real valor_hora_trabalhada
+        real valor_salario_minimo
+        real valor_hora_ausente
+        real salario_final
+
+        escreva("digite as horas trabalhadas")
+        leia(hora_trabalhada)
+
+        escreva("digite as horas extras")
+        leia(hora_extra)
+
+        escreva("digite as horas ausentes")
+        leia(hora_ausente)
+
+        escreva("digite o valor do salario minimo")
+        leia(valor_salario_minimo)
+
+        valor_hora_trabalhada = hora_trabalhada * (0.04 * valor_salario_minimo)
+
+        valor_hora_extra = hora_extra * (1.5 * valor_hora_trabalhada)
+
+        valor_hora_ausente = hora_ausente * (0.04 * valor_salario_minimo)
+
+        salario_final = ((valor_hora_trabalhada - valor_hora_ausente) + valor_hora_extra)  * 0.11
+        
+        escreva("o salario deste trabalhador eh de:  ",salario_final)
+    fim
+
+ex5
+
+    inicio
+
+        real salario_familia
+        real salario_funcionario
+
+        inteiro numero_pessoas_familia
+
+        escreva("digite o salario do funcionario")
+        leia(salario_funcionario)
+        
+        escreva("digite o numero de pessoas da familia)
+        leia(numero_pessoas_familia)
+
+        salario_familia = numero_pessoas_familia * (0.02 * salario_funcionario)
+
+        escreva("salario da familia eh: ", salario_familia)
+
+    fim
+
+ex6
+
+    inicio
+
+        real preco_montadora 
+        real lucro
+        real ipi
+        real icm
+        real preco_final
+
+        escreva("digite o preco montador)
+        leia(preco_montadora)
+
+        lucro = preco_montadora * 0.15
+        ipi = preco_montadora * 0.11
+        icm = preco_montadora * 0.17
+
+        preco_final = preco_montadora + lucro + icm + ipi
+
+        escreva("o preco final eh de: ",preco_final)
+
+    fim
+
+ex7
+
+    inicio
+
+        inteiro qtd_galoes
+        real distancia
+        real tempo
+        real velocidade_media
+        real consumo_da_viagem
+        inteiro resto
+
+        inteiro consumo_carro = 12
+        inteiro qtd_litros_galao = 5
+
+        escreva("digite a velocidade media")
+        leia(velocidade_media)
+
+        escreva(digite as horas de duracao da viagem)
+        leia(tempo)
+
+        distancia = velocidade_media / tempo
+
+        consumo_da_viagem = distancia / consumo_carro
+
+        qtd_galoes = consumo_da_viagem \ qtd_litros_galao
+
+        resto = consumo_da_viagem % qtd_litros_galao
+
+        SE resto > 0 ENTAO
+            qtd_galoes + 1 
+        
+        escreva("voce ira precisar levar: ",qtd_galoes,"nesta viagem")
+
+    fim
+
+ex8
+
+    inicio
+
+        real ponto_1_eixo_x
+        real ponto_1_eixo_y
+
+        real ponto_2_eixo_x
+        real ponto_2_eixo_y
+
+        real distancia
+
+        real potencia_ponto_1
+        real potencia_ponto_2
+
+        escreva("digite o ponto 1 no eixo x")
+        leia(ponto_1_eixo_x)
+        escreva("digite o ponto 1 no eixo y")
+        leia(ponto_1_eixo_y)
+
+        escreva("digite o ponto 2 eixo x")
+        leia(ponto_2_eixo_x)
+        escreva("digite o ponto 2 eixo y")
+        leia(ponto_2_eixo_y) 
+
+        potencia_ponto_1 = (ponto_1_eixo_x * ponto_1_eixo_y) * (ponto_1_eixo_x * ponto_1_eixo_y)
+        potencia_ponto_2 = (ponto_2_eixo_x * ponto_2_eixo_y) * (ponto_2_eixo_x * ponto_2_eixo_y)
+
+        distancia = sqrt(potencia_ponto_1 + potencia_ponto_2)
+
+        escreva("a distancia eh de: ",distancia)
+
+    fim
+
+ex9
+    inicio
+
+        inteiro qtd_alunos 
+        inteiro qtd_grupos
+        inteiro resto_alunos
+
+        escreva("digite a quantidade de alunos ")
+        leia(qtd_alunos)
+
+        qtd_grupos = qtd_alunos \ 4
+        resto_alunos = qtd_alunos % 4
+
+        escreva("a quantidade de grupos é de: ", qtd_grupos," e sobram ",resto_alunos,"alunos" )
+
+    fim

@@ -152,7 +152,7 @@ int main(){
         printf("Validador e Criador de CPF\n "
         "digite a opcao desejada\n"
         "[V]alidar, [C]riar,[S]air: ");
-        scanf("%c", &menu);
+        scanf("%s", &menu);
         getchar();
 
         switch (menu){
